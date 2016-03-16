@@ -100,8 +100,8 @@ function drawNetwork(audience){
   var width = $(window).width() - 250,
       height = $(window).height(),
       padding = 0, // separation between same-color nodes
-      clusterPadding = 10, // separation between different-color nodes
-      maxRadius = 5;
+      clusterPadding = 0, // separation between different-color nodes
+      maxRadius = 4;
 
   var n = 600, // total number of nodes
       m = theClusters.length; // number of distinct clusters
@@ -184,20 +184,9 @@ var clusters = new Array(m);
     }); //cluster.sharedInfluencers.forEach
   }); //theClusters.forEach
 
-
-// // Use the pack layout to initialize node positions.
-// d3.layout.pack()
-//     .sort(null)
-//     .size([width, height])
-//     .children(function(d) { return d.values; })
-//     .value(function(d) { return d.radius * d.radius; })
-//     .nodes({values: d3.nest()
-//       .key(function(d) { return d.cluster; })
-//       .entries(nodes)});
-
 force = d3.layout.force()
-  .links(links)
-  .nodes(nodes)
+  // .links(links)
+  // .nodes(nodes)
   .gravity(2)
   .linkStrength(2.5)
   .size([width, height])
