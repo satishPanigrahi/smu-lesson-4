@@ -185,8 +185,8 @@ var clusters = new Array(m);
   }); //theClusters.forEach
 
 force = d3.layout.force()
-  // .links(links)
-  // .nodes(nodes)
+  .links(links)
+  .nodes(nodes)
   .gravity(2)
   .linkStrength(2.5)
   .size([width, height])
@@ -243,6 +243,7 @@ svg = d3.select("#vis").append("svg")
       });
 
 function tick(e) {
+	// console.log(e); // Added in class
   node
       .each(cluster(e.alpha))
       .each(collide(.5))

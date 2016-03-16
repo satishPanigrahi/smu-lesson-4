@@ -1,0 +1,8 @@
+// Refer: https://github.com/mbostock/d3/wiki/Force-Layout
+
+
+
+force.gravity(0.2).resume()
+force.linkDistance(2000)resume()
+force.friction(0.1).start()
+force.linkStrength(0).start()
